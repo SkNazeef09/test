@@ -4,7 +4,6 @@ on: [workflow_dispatch,push]
 
 jobs:
   first-job:
-    needs: second-job
     runs-on: ubuntu-latest
 
     steps:
@@ -13,11 +12,21 @@ jobs:
       - name: github checkout
         uses: actions/checkout@v6
   second-job:
+    needs: first-job
     runs-on: ubuntu-latest
 
     steps:
       - name: second-step
         run: echo "Hello World"
       - name: github checkout
-        uses: actions/checkout@v6          
+        uses: actions/checkout@v6    
+  third-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: second-step
+        run: echo "Hello World"
+      - name: github checkout
+        uses: actions/checkout@v6    
       
