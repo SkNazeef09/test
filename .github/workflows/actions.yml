@@ -10,6 +10,6 @@ jobs:
       - name: first-step
         run: echo "Hello World"
       - name: github checkout
-        uses: action/checkout@v7
+        uses: actions/checkout@v6
             
       
